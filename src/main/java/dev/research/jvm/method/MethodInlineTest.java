@@ -27,4 +27,13 @@ public class MethodInlineTest {
     public static int bar(boolean flag) {
         return flag ? value0 : value1;
     }
+
+    /**
+     * -XX:+PrintInlining查看方法内联情况
+     * -XX:+UnlockDiagnosticVMOptions
+     * @param args
+     */
+    public static void main(String[] args) {
+        foo(10);
+    }
 }
