@@ -7,6 +7,9 @@ package dev.research.jvm;
  * @Date: 2020-01-03 23:57
  */
 public class BooleanTest {
+    public static void premain(String args) {
+        System.out.println("zsd");
+    }
     public static void main(String[] args) {
         boolean flag=true;//iload iconst_1 istore 1
         if (flag) System.out.println("hello world1"); //iload 1 ifeql l3 iconst_1
