@@ -2,7 +2,7 @@
  * Copyright: 2020 dingxiang-inc.com Inc. All rights reserved.
  */
 
-package dev.research.eventListener.domain.event;
+package java.research.eventListener.domain.event;
 
 /**
  * @fileName: DomainEvent.java

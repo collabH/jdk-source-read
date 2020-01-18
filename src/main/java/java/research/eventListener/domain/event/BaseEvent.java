@@ -2,7 +2,7 @@
  * Copyright: 2020 forchange Inc. All rights reserved.
  */
 
-package dev.research.eventListener.domain.event;
+package java.research.eventListener.domain.event;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;

@@ -2,10 +2,8 @@
  * Copyright: 2020 forchange Inc. All rights reserved.
  */
 
-package dev.research.eventListener;
+package java.research.eventListener;
 
-import dev.research.eventListener.application.OrderService;
-import dev.research.eventListener.domain.event.CreateOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -14,6 +12,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.math.BigDecimal;
+import java.research.eventListener.application.OrderService;
+import java.research.eventListener.domain.event.CreateOrder;
 
 /**
  * @fileName: BootStrapApp.java
@@ -34,6 +34,7 @@ public class BootStrapApp {
         order.setPrice(new BigDecimal(10));
         orderService.save(order);
     }
+
 
     public static void main(String[] args) {
         new SpringApplicationBuilder(BootStrapApp.class)
