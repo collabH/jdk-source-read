@@ -68,6 +68,10 @@ package java.util;
  * @since 1.2
  */
 
+/**
+ * 将list类似的数组结构的公共操作模版化
+ * @param <E>
+ */
 public abstract class AbstractList<E> extends AbstractCollection<E> implements List<E> {
     /**
      * Sole constructor.  (For invocation by subclass constructors, typically
@@ -105,6 +109,7 @@ public abstract class AbstractList<E> extends AbstractCollection<E> implements L
      *         prevents it from being added to this list
      */
     public boolean add(E e) {
+        //交给不同的子类实现
         add(size(), e);
         return true;
     }
@@ -438,6 +443,7 @@ public abstract class AbstractList<E> extends AbstractCollection<E> implements L
                 AbstractList.this.add(i, e);
                 lastRet = -1;
                 cursor = i + 1;
+                //fail-fast原则
                 expectedModCount = modCount;
             } catch (IndexOutOfBoundsException ex) {
                 throw new ConcurrentModificationException();

@@ -108,6 +108,10 @@ import java.util.function.UnaryOperator;
  * @since 1.2
  */
 
+/**
+ * 定义List的基本操作
+ * @param <E>
+ */
 public interface List<E> extends Collection<E> {
     // Query Operations
 

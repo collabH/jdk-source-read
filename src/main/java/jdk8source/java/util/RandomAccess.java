@@ -64,5 +64,9 @@ package java.util;
  *
  * @since 1.4
  */
+
+/**
+ * 表示实现的数据结构支持随机访问
+ */
 public interface RandomAccess {
 }

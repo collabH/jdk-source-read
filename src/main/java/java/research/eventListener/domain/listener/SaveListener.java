@@ -19,7 +19,6 @@ import java.research.eventListener.domain.event.OrderId;
 @Component
 public class SaveListener {
 
-
     @EventListener
     public void listener(CreateOrder event) {
         event.createOrder(new OrderId().generate());

@@ -50,5 +50,9 @@ package java.lang;
  * @see     java.lang.Object#clone()
  * @since   JDK1.0
  */
+
+/**
+ * 支持clone操作
+ */
 public interface Cloneable {
 }
