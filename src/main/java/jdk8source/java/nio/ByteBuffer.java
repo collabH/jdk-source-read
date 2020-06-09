@@ -267,9 +267,10 @@ public abstract class ByteBuffer
     // These fields are declared here rather than in Heap-X-Buffer in order to
     // reduce the number of virtual method invocations needed to access these
     // values, which is especially costly when coding small buffers.
-    //
+    //heap buffer大小非空
     final byte[] hb;                  // Non-null only for heap buffers
     final int offset;
+    //heap buffers 是否只读
     boolean isReadOnly;                 // Valid only for heap buffers
 
     // Creates a new buffer with the given mark, position, limit, capacity,
@@ -292,6 +293,7 @@ public abstract class ByteBuffer
 
 
     /**
+     * 申请一个直接缓冲区，直接通过JNI
      * Allocates a new direct byte buffer.
      *
      * <p> The new buffer's position will be zero, its limit will be its
@@ -314,6 +316,7 @@ public abstract class ByteBuffer
 
 
     /**
+     * 申请一个heap buffer
      * Allocates a new byte buffer.
      *
      * <p> The new buffer's position will be zero, its limit will be its
@@ -336,6 +339,7 @@ public abstract class ByteBuffer
     }
 
     /**
+     * 包装一个字节数组向buffer中
      * Wraps a byte array into a buffer.
      *
      * <p> The new buffer will be backed by the given byte array;
