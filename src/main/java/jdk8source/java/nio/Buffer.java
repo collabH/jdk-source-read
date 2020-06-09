@@ -23,7 +23,7 @@
  *
  */
 
-package java.nio;
+package jdk8source.java.nio;
 
 import java.util.Spliterator;
 
@@ -182,13 +182,18 @@ public abstract class Buffer {
         Spliterator.SIZED | Spliterator.SUBSIZED | Spliterator.ORDERED;
 
     // Invariants: mark <= position <= limit <= capacity
+    //缓冲区的位置设置标记
     private int mark = -1;
+    //缓冲区的位置
     private int position = 0;
+    //缓冲区的限制
     private int limit;
+    //缓冲区的容量
     private int capacity;
 
     // Used only by direct buffers
     // NOTE: hoisted here for speed in JNI GetDirectBufferAddress
+    //只用于使用直接缓冲，用于JNI GetDirectBufferAddress
     long address;
 
     // Creates a new buffer with the given mark, position, limit, and capacity,
@@ -227,6 +232,7 @@ public abstract class Buffer {
     }
 
     /**
+     * 设置buffer的位置，如果这个mark是被定义的并且大于这个新的位置那么mark将被丢弃
      * Sets this buffer's position.  If the mark is defined and larger than the
      * new position then it is discarded.
      *
@@ -240,6 +246,7 @@ public abstract class Buffer {
      *          If the preconditions on <tt>newPosition</tt> do not hold
      */
     public final Buffer position(int newPosition) {
+        //校验合法性
         if ((newPosition > limit) || (newPosition < 0))
             throw new IllegalArgumentException();
         position = newPosition;
@@ -271,10 +278,13 @@ public abstract class Buffer {
      *          If the preconditions on <tt>newLimit</tt> do not hold
      */
     public final Buffer limit(int newLimit) {
+        //保证不变式
         if ((newLimit > capacity) || (newLimit < 0))
             throw new IllegalArgumentException();
         limit = newLimit;
+        //如果position大于限制那么重新设置位置
         if (position > limit) position = limit;
+        //丢弃mark
         if (mark > limit) mark = -1;
         return this;
     }
@@ -285,6 +295,7 @@ public abstract class Buffer {
      * @return  This buffer
      */
     public final Buffer mark() {
+        //在position打标
         mark = position;
         return this;
     }
@@ -304,6 +315,7 @@ public abstract class Buffer {
         int m = mark;
         if (m < 0)
             throw new InvalidMarkException();
+        //回到上一次消费buffer的position
         position = m;
         return this;
     }
@@ -326,6 +338,7 @@ public abstract class Buffer {
      * @return  This buffer
      */
     public final Buffer clear() {
+        //清空position并且设置limit为容量大小
         position = 0;
         limit = capacity;
         mark = -1;
@@ -354,6 +367,7 @@ public abstract class Buffer {
      * @return  This buffer
      */
     public final Buffer flip() {
+        //设置当前读取的位置position为limit，清空position 等于将可写的数据减小为position
         limit = position;
         position = 0;
         mark = -1;
@@ -376,6 +390,7 @@ public abstract class Buffer {
      * @return  This buffer
      */
     public final Buffer rewind() {
+        //清空position和mark标记
         position = 0;
         mark = -1;
         return this;

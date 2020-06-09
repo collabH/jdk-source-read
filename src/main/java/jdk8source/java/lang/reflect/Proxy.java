@@ -229,17 +229,22 @@ public class Proxy implements java.io.Serializable {
 
     private static final long serialVersionUID = -2222568056686623797L;
 
+    /**
+     * 构造器参数
+     */
     /** parameter types of a proxy class constructor */
     private static final Class<?>[] constructorParams =
         { InvocationHandler.class };
 
     /**
      * a cache of proxy classes
+     * 代理类的缓冲
      */
     private static final WeakCache<ClassLoader, Class<?>[], Class<?>>
         proxyClassCache = new WeakCache<>(new KeyFactory(), new ProxyClassFactory());
 
     /**
+     * 代理实例的调用处理器
      * the invocation handler for this proxy instance.
      * @serial
      */
@@ -367,7 +372,7 @@ public class Proxy implements java.io.Serializable {
         if (sm != null) {
             checkProxyAccess(Reflection.getCallerClass(), loader, intfs);
         }
-
+        //从缓存中拿代理对象
         return getProxyClass0(loader, intfs);
     }
 
