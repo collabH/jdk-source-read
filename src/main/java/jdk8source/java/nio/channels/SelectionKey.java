@@ -126,6 +126,7 @@ public abstract class SelectionKey {
     public abstract SelectableChannel channel();
 
     /**
+     * 当这个key被创建时返回一个选择器
      * Returns the selector for which this key was created.  This method will
      * continue to return the selector even after the key is cancelled.
      *
@@ -215,6 +216,7 @@ public abstract class SelectionKey {
     // -- Operation bits and bit-testing convenience methods --
 
     /**
+     * 1
      * Operation-set bit for read operations.
      *
      * <p> Suppose that a selection key's interest set contains
@@ -228,6 +230,7 @@ public abstract class SelectionKey {
     public static final int OP_READ = 1 << 0;
 
     /**
+     * 4
      * Operation-set bit for write operations.
      *
      * <p> Suppose that a selection key's interest set contains
@@ -241,6 +244,7 @@ public abstract class SelectionKey {
     public static final int OP_WRITE = 1 << 2;
 
     /**
+     * 8
      * Operation-set bit for socket-connect operations.
      *
      * <p> Suppose that a selection key's interest set contains
@@ -254,6 +258,7 @@ public abstract class SelectionKey {
     public static final int OP_CONNECT = 1 << 3;
 
     /**
+     * 16
      * Operation-set bit for socket-accept operations.
      *
      * <p> Suppose that a selection key's interest set contains

@@ -198,7 +198,6 @@ public abstract class Buffer {
 
     // Creates a new buffer with the given mark, position, limit, and capacity,
     // after checking invariants.
-    //
     Buffer(int mark, int pos, int lim, int cap) {       // package-private
         if (cap < 0)
             throw new IllegalArgumentException("Negative capacity: " + cap);

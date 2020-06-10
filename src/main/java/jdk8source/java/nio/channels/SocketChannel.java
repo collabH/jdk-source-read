@@ -120,7 +120,7 @@ public abstract class SocketChannel
 
     /**
      * Initializes a new instance of this class.
-     *
+     * 初始化这个累的新实例
      * @param  provider
      *         The provider that created this channel
      */
@@ -130,7 +130,7 @@ public abstract class SocketChannel
 
     /**
      * Opens a socket channel.
-     *
+     * 打开一个socket通道
      * <p> The new channel is created by invoking the {@link
      * java.nio.channels.spi.SelectorProvider#openSocketChannel
      * openSocketChannel} method of the system-wide default {@link
@@ -142,6 +142,7 @@ public abstract class SocketChannel
      *          If an I/O error occurs
      */
     public static SocketChannel open() throws IOException {
+        //基于selector打开一个网络通道
         return SelectorProvider.provider().openSocketChannel();
     }
 

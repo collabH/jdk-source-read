@@ -68,7 +68,9 @@ import sun.security.action.GetPropertyAction;
 
 public abstract class SelectorProvider {
 
+    //对象锁
     private static final Object lock = new Object();
+    //选择器
     private static SelectorProvider provider = null;
 
     /**

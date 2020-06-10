@@ -201,6 +201,7 @@ import java.util.Set;
  *
  * @see SelectableChannel
  * @see SelectionKey
+ * 选择器抽象类
  */
 
 public abstract class Selector implements Closeable {
@@ -211,6 +212,7 @@ public abstract class Selector implements Closeable {
     protected Selector() { }
 
     /**
+     * 静态抽象工厂方法 开启一个选择器，生成一个选择器
      * Opens a selector.
      *
      * <p> The new selector is created by invoking the {@link
@@ -228,6 +230,7 @@ public abstract class Selector implements Closeable {
     }
 
     /**
+     * 判断选择器是否开启
      * Tells whether or not this selector is open.
      *
      * @return <tt>true</tt> if, and only if, this selector is open
@@ -235,6 +238,7 @@ public abstract class Selector implements Closeable {
     public abstract boolean isOpen();
 
     /**
+     * 返回一个生产创建这个channel
      * Returns the provider that created this channel.
      *
      * @return  The provider that created this channel
@@ -242,6 +246,7 @@ public abstract class Selector implements Closeable {
     public abstract SelectorProvider provider();
 
     /**
+     * 返回选择器key的集合
      * Returns this selector's key set.
      *
      * <p> The key set is not directly modifiable.  A key is removed only after
@@ -259,6 +264,7 @@ public abstract class Selector implements Closeable {
     public abstract Set<SelectionKey> keys();
 
     /**
+     * 返回选择器被选择的key的集合
      * Returns this selector's selected-key set.
      *
      * <p> Keys may be removed from, but not directly added to, the

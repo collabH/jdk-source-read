@@ -56,6 +56,7 @@ import java.io.Closeable;
 public interface Channel extends Closeable {
 
     /**
+     * 判断此channel是非处于打开
      * Tells whether or not this channel is open.
      *
      * @return <tt>true</tt> if, and only if, this channel is open
@@ -63,6 +64,7 @@ public interface Channel extends Closeable {
     public boolean isOpen();
 
     /**
+     * 关闭这个channel
      * Closes this channel.
      *
      * <p> After a channel is closed, any further attempt to invoke I/O
